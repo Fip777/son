@@ -1,0 +1,149 @@
+:root {
+  --bg-color: #ffffff;
+  --text-color: #222;
+  --card-size: 140px;
+  --radius: 16px;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: var(--bg-color);
+  color: var(--text-color);
+  text-align: center;
+}
+
+section {
+  display: none;
+  padding: 30px 20px;
+}
+
+section.active {
+  display: block;
+}
+
+/* ===== GRID VIGNETTES ===== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, var(--card-size));
+  gap: 20px;
+  justify-content: center;
+}
+
+.card {
+  width: var(--card-size);
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.card img {
+  width: 100%;
+  height: var(--card-size);
+  object-fit: cover;
+  border-radius: var(--radius);
+}
+
+.card span {
+  display: block;
+  margin-top: 6px;
+  font-size: 14px;
+}
+
+/* Vignette sélectionnée */
+.card.selected {
+  opacity: 0.6;
+}
+
+/* ===== DURÉE ===== */
+.duration-container {
+  margin: 30px auto 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+#duration {
+  width: 200px;
+}
+
+.duration-box {
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  padding: 6px 10px;
+  min-width: 50px;
+}
+
+.duration-box span {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.duration-box small {
+  display: block;
+  font-size: 10px;
+  color: #666;
+}
+
+/* ===== PLAY BUTTON ===== */
+.play-btn {
+  margin-top: 20px;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: none;
+  background: white;
+  font-size: 28px;
+  color: #444;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+  cursor: pointer;
+}
+
+/* ===== PLAYER ===== */
+.progress {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 10px;
+
+  max-width: 400px;
+  margin: 0 auto 20px;
+}
+
+.hidden {
+  display: none;
+}
+
+/* ===== PAGE LECTURE ===== */
+
+#player img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 20px;
+  margin: 20px auto;
+  display: block;
+}
+
+#player h2 {
+  margin-bottom: 20px;
+}
+
+/* Bouton lecture identique accueil */
+#player .play-btn {
+  margin: 20px auto 10px;
+  display: block;
+}
+
+/* Bouton terminer */
+.stop-btn {
+  margin: 10px auto;
+  padding: 10px 30px;
+  border-radius: 20px;
+  border: none;
+  background: #000;
+  color: #fff;
+  font-size: 14px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+  cursor: pointer;
+}
