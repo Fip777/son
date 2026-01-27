@@ -1,18 +1,28 @@
+/* =========================
+   VARIABLES & BASE
+========================= */
 :root {
   --bg-color: #ffffff;
   --text-color: #222;
-  --card-size: 140px;
   --radius: 16px;
+}
+
+html {
+  font-size: 16px;
 }
 
 body {
   margin: 0;
+  min-height: 100vh;
   font-family: Arial, sans-serif;
   background: var(--bg-color);
   color: var(--text-color);
   text-align: center;
 }
 
+/* =========================
+   SECTIONS & CENTRAGE
+========================= */
 section {
   display: none;
   padding: 30px 20px;
@@ -22,23 +32,49 @@ section.active {
   display: block;
 }
 
-/* ===== GRID VIGNETTES ===== */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, var(--card-size));
-  gap: 20px;
+.container {
+  min-height: calc(100vh - 40px);
+  display: flex;
+  flex-direction: column;
   justify-content: center;
 }
 
+/* =========================
+   TYPOGRAPHIE RESPONSIVE
+========================= */
+h1, h2 {
+  font-size: clamp(1.4rem, 4vw, 2rem);
+}
+
+span, p {
+  font-size: clamp(0.9rem, 3vw, 1.1rem);
+}
+
+/* =========================
+   GRID VIGNETTES
+========================= */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+@media (max-width: 360px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 .card {
-  width: var(--card-size);
   cursor: pointer;
   transition: opacity 0.2s;
 }
 
 .card img {
   width: 100%;
-  height: var(--card-size);
+  aspect-ratio: 1 / 1;
   object-fit: cover;
   border-radius: var(--radius);
 }
@@ -46,7 +82,6 @@ section.active {
 .card span {
   display: block;
   margin-top: 6px;
-  font-size: 14px;
 }
 
 /* Vignette sélectionnée */
@@ -54,7 +89,9 @@ section.active {
   opacity: 0.6;
 }
 
-/* ===== DURÉE ===== */
+/* =========================
+   DURÉE (SLIDER)
+========================= */
 .duration-container {
   margin: 30px auto 10px;
   display: flex;
@@ -64,7 +101,7 @@ section.active {
 }
 
 #duration {
-  width: 200px;
+  width: min(80vw, 280px);
 }
 
 .duration-box {
@@ -75,50 +112,91 @@ section.active {
 }
 
 .duration-box span {
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: bold;
 }
 
 .duration-box small {
   display: block;
-  font-size: 10px;
+  font-size: 0.7rem;
   color: #666;
 }
 
-/* ===== PLAY BUTTON ===== */
+/* =========================
+   BOUTON PLAY (ACCUEIL + PLAYER)
+========================= */
 .play-btn {
-  margin-top: 20px;
+  margin: 20px auto;
+  position: relative;
   width: 70px;
   height: 70px;
   border-radius: 50%;
   border: none;
   background: white;
-  font-size: 28px;
-  color: #444;
   box-shadow: 0 6px 15px rgba(0,0,0,0.2);
   cursor: pointer;
+  padding: 0;
+  display: block;
 }
 
-/* ===== PLAYER ===== */
+/* RESET mobile */
+.play-btn::before,
+.play-btn::after {
+  content: "";
+  position: absolute;
+  background: #444;
+}
+
+/* PLAY */
+.play-btn.play::before {
+  width: 0;
+  height: 0;
+  border-left: 18px solid #444;
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+  background: transparent;
+  left: 50%;
+  top: 50%;
+  transform: translate(-45%, -50%);
+}
+
+/* PAUSE */
+.play-btn.pause::before,
+.play-btn.pause::after {
+  width: 6px;
+  height: 26px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.play-btn.pause::before {
+  left: 28px;
+}
+
+.play-btn.pause::after {
+  right: 28px;
+}
+
+
+/* =========================
+   PLAYER – BARRE DE TEMPS
+========================= */
 .progress {
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: center;
   gap: 10px;
 
-  max-width: 400px;
+  max-width: min(90vw, 400px);
   margin: 0 auto 20px;
 }
 
-.hidden {
-  display: none;
-}
-
-/* ===== PAGE LECTURE ===== */
-
+/* =========================
+   PAGE LECTURE
+========================= */
 #player img {
-  width: 200px;
-  height: 200px;
+  width: min(60vw, 220px);
+  aspect-ratio: 1 / 1;
   object-fit: cover;
   border-radius: 20px;
   margin: 20px auto;
@@ -129,13 +207,9 @@ section.active {
   margin-bottom: 20px;
 }
 
-/* Bouton lecture identique accueil */
-#player .play-btn {
-  margin: 20px auto 10px;
-  display: block;
-}
-
-/* Bouton terminer */
+/* =========================
+   BOUTON TERMINER
+========================= */
 .stop-btn {
   margin: 10px auto;
   padding: 10px 30px;
@@ -143,7 +217,14 @@ section.active {
   border: none;
   background: #000;
   color: #fff;
-  font-size: 14px;
+  font-size: 0.9rem;
   box-shadow: 0 6px 15px rgba(0,0,0,0.3);
   cursor: pointer;
+}
+
+/* =========================
+   UTILITAIRES
+========================= */
+.hidden {
+  display: none;
 }
