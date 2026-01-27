@@ -2,17 +2,21 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Écoute sonore</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <!-- PAGE ACCUEIL -->
-  <section id="home" class="active">
-	<h1>Choisissez un son</h1>
+<section id="home" class="active">
+ <div class="container">
+
+		<h1>Choisissez un son</h1>
 
   <div class="grid">
-    <!-- Exemple de vignette -->
+  
+    <!-- Vignettes -->
     <div class="card"
          data-sound="sounds/pluie.mp3"
          data-name="Pluie"
@@ -129,16 +133,16 @@
   </div>
 
   <!-- Bouton play -->
-  <button id="startBtn" class="play-btn">
-    ▶
-  </button>
-
+  <button id="startBtn" class="play-btn play"></button>
+  
+ </div>
 </section>
 
 
   <!-- PAGE LECTURE -->
 <section id="player">
-
+ <div class="container">
+ 
   <img id="playerImage" alt="">
 
   <h2 id="playerTitle"></h2>
@@ -157,14 +161,14 @@
     <span id="remainingTime">-0:00</span>
   </div>
 
-  <button id="togglePlay" class="play-btn">
-    ▶
-  </button>
+  <button id="togglePlay" class="play-btn pause"></button>
+
 
   <button id="stopBtn" class="stop-btn hidden">
     Terminer
   </button>
 
+ </div>
 </section>
 
   <audio id="audio"></audio>
