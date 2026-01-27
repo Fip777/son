@@ -37,6 +37,8 @@ durationSlider.addEventListener('input', () => {
 cards.forEach(card => {
   card.addEventListener('click', () => {
 
+    if (player.classList.contains('active')) return;
+
     cards.forEach(c => c.classList.remove('selected'));
     card.classList.add('selected');
 
@@ -56,6 +58,7 @@ cards.forEach(card => {
     }, 3000);
   });
 });
+
 
 /* ===== LANCEMENT ===== */
 startBtn.addEventListener('click', () => {
@@ -117,12 +120,14 @@ togglePlay.addEventListener('click', () => {
   if (isPaused) {
     audio.play();
     isPaused = false;
-    togglePlay.textContent = "⏸";
+    togglePlay.classList.remove('play');
+    togglePlay.classList.add('pause');
     stopBtn.classList.add('hidden');
   } else {
     audio.pause();
     isPaused = true;
-    togglePlay.textContent = "▶";
+    togglePlay.classList.remove('pause');
+    togglePlay.classList.add('play');
     stopBtn.classList.remove('hidden');
   }
 });
