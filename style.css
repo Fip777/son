@@ -20,6 +20,39 @@ body {
   text-align: center;
 }
 
+/*==== BARRE HAUT DE PAGE ====*/
+
+.top-bar {
+    display: flex;                 /* aligne les éléments horizontalement */
+    align-items: center;           /* centre verticalement */
+    justify-content: center;       /* centre horizontalement le contenu */
+    padding: 20px;            	  /* gauche/droite */
+	Padding-top: 30px;     		  /* espace haut*/
+	Padding-bottom: 0px;		  /* espace bas*/
+    gap: 10px; 
+}
+
+/* Lignes gauche et droite */
+.top-bar .line {
+    flex: 1;                       
+    height: 1px;                   /* épaisseur de la ligne */
+    background-color: #0d2a5c;     /* couleur du trait */
+}
+
+/* Lien central */
+.top-link {
+    text-decoration: none;         /* enlève soulignement */
+    color: #0d2a5c;                /* couleur texte */
+    font-weight: standard;         /* texte non gras */    
+    white-space: nowrap;           /* empêche retour à la ligne */
+    transition: 0.3s;
+}
+
+/* Effet au survol */
+.top-link:hover {
+    color: #0077cc;                /* couleur au survol */
+}
+
 /* =========================
    SECTIONS & CENTRAGE
 ========================= */
@@ -228,3 +261,4 @@ span, p {
 .hidden {
   display: none;
 }
+
