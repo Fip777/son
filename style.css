@@ -138,6 +138,15 @@ span, p {
   }
 }
 
+@media(max-height: 700px){
+  .card img {
+    width: 85%;
+	aspect-ratio: 1 / 1;
+	object-fit: cover;
+	border-radius: var(--radius);
+  }
+}
+
 .card {
   width: 100%;
   max-width: 120px;
@@ -334,4 +343,5 @@ span, p {
 .hidden {
   display: none;
 }
+
 
