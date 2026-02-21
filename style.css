@@ -32,8 +32,8 @@ body {
     align-items: center;           /* centre verticalement */
     justify-content: center;       /* centre horizontalement le contenu */
     padding: 20px;            	  /* gauche/droite */
-	Padding-top: 30px;     		  /* espace haut*/
-	Padding-bottom: 0px;		  /* espace bas*/
+	Padding-top: 15px;     		  /* espace haut*/
+	Padding-bottom: 5px;		  /* espace bas*/
     gap: 10px; 
 }
 
@@ -109,7 +109,7 @@ span, p {
 .home-scroll {
   flex: 1;
   overflow-y: auto;
-  padding-bottom: 90px; /* espace bas de page */
+  padding-bottom: 20vh; /* espace bas de page % hauteur page*/
 
   /* inertie iOS */
   -webkit-overflow-scrolling: touch;
@@ -334,3 +334,4 @@ span, p {
 .hidden {
   display: none;
 }
+
