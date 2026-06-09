@@ -1,3 +1,11 @@
+/* =============
+   COPYRIGHT
+================
+Copyright (C) 2026, Audrey Bourgeois. Tous droits réservés. 
+Les informations contenues ici, code et concepts intellectuels, sont la propriété de Audrey Bourgeois 
+et sont protégés par le droit d'auteur. 
+Toute diffusion ou reproduction même partielle, quel qu’en soit le support, est interdite.*/
+
 /* =========================
    SÉLECTION DES ÉLÉMENTS
 ========================= */
@@ -52,7 +60,16 @@ cards.forEach(card => {
     cards.forEach(c => c.classList.remove('selected'));
     card.classList.add('selected');
 
-    selectedSound = card.dataset.sound;
+// Gestion spéciale pour "Surprise"
+if (card.dataset.name === "Surprise") {
+
+  const randomNumber = Math.floor(Math.random() * 10) + 1;
+  selectedSound = `sounds/surprise${randomNumber}.mp3`;
+
+} else {
+
+  selectedSound = card.dataset.sound;
+}
     selectedImage = card.dataset.image;
     selectedName = card.dataset.name;
 
