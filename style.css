@@ -8,7 +8,7 @@
 }
 
 html {
-  font-size: 16px;
+  font-size: 14px;
   max-width: 100%;
   overflow-x: hidden;
 }
@@ -109,7 +109,7 @@ span, p {
 .home-scroll {
   flex: 1;
   overflow-y: auto;
-  padding-bottom: 20vh; /* espace bas de page % hauteur page*/
+  padding-bottom: 20vh; /* espace bas de page */
 
   /* inertie iOS */
   -webkit-overflow-scrolling: touch;
@@ -138,14 +138,6 @@ span, p {
   }
 }
 
-@media(max-height: 700px){
-  .card img {
-    width: 85%;
-	aspect-ratio: 1 / 1;
-	object-fit: cover;
-	border-radius: var(--radius);
-  }
-}
 
 .card {
   width: 100%;
@@ -159,6 +151,7 @@ span, p {
   aspect-ratio: 1 / 1;
   object-fit: cover;
   border-radius: var(--radius);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);  /* ombre autour images */
 }
 
 
@@ -281,7 +274,7 @@ span, p {
   gap: 10px;
 
   max-width: min(90vw, 400px);
-  margin: 0 auto 20px;
+  margin: 0 auto 0px;
 }
 
 /* =========================
@@ -294,10 +287,22 @@ span, p {
   border-radius: 20px;
   margin: 20px auto;
   display: block;
+  margin-bottom: 50px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);  /* ombre autour image */
+}
+
+@media(max-height: 650px){
+#player img {
+  width: min(40vw, 220px);
+  margin-bottom: 0px;
+  }
+#player h2 {
+  margin-bottom: 30px; /* espace sous titre musique */
+}
 }
 
 #player h2 {
-  margin-bottom: 20px;
+  margin-bottom: 50px; /* espace sous titre musique */
 }
 
 /* =========================
@@ -343,5 +348,3 @@ span, p {
 .hidden {
   display: none;
 }
-
-
